@@ -4,33 +4,31 @@ import { db } from "../config/database.ts";
 
 const collection = db.collection("ingredients");
 
-export class IngredientRepository {
+export const createIngredient = async (ingredient: Ingredient): Promise<Ingredient> => {
+    const result = await collection.insertOne(ingredient);
 
-    async createIngredient(ingredient: Ingredient): Promise<boolean> {
-        const result = await collection.insertOne(ingredient);
-        return result;
+    if (result.acknowledged && result.insertedId) {
+        return getIngredientById(result.insertedId.toString());
     }
 
-    async getIngredients(): Promise<Ingredient[]> {
-        const ingredients = await collection.find();
-        return ingredients;
-    }
+    throw new Error("Erreur lors de la création de l'ingrédient.")
+}
 
-    async getIngredientById(id: string): Promise<Ingredient> {
-        const objectId = new ObjectId(id);
-        const ingredient = await collection.findOne({ _id: objectId });
-        return ingredient;
-    }
+export const getIngredients = async (): Promise<Ingredient[]> => {
+    return await collection.find({}).toArray();
+}
 
-    async updateIngredient(id: string, ingredient: Ingredient): Promise<boolean> {
-        const objectId = new ObjectId(id);
-        const result = await collection.updateOne({ _id: objectId }, { $set: ingredient });
-        return result;
-    }
+export const getIngredientById = async (id: string): Promise<Ingredient> => {
+    const objectId = new ObjectId(id);
+    return await collection.findOne({ _id: objectId });
+}
 
-    async deleteIngredient(id: string): Promise<boolean> {
-        const objectId = new ObjectId(id);
-        const result = await collection.deleteOne({ _id: objectId });
-        return result;
-    }
-};
+export const updateIngredient = async (id: string, ingredient: Ingredient): Promise<boolean> => {
+    const objectId = new ObjectId(id);
+    return await collection.updateOne({ _id: objectId }, { $set: ingredient });
+}
+
+export const deleteIngredient = async (id: string): Promise<boolean> => {
+    const objectId = new ObjectId(id);
+    return await collection.deleteOne({ _id: objectId });
+}
