@@ -18,7 +18,11 @@ export const getIngredientById = (id: string) => {
 }
 
 export const updateIngredient = (id: string, ingredient: Ingredient) => {
-    return ingredientRepository.updateIngredient(id, ingredient);
+    const ingredientWithDate = {
+        ...ingredient,
+        updatedDate: new Date(),
+    };
+    return ingredientRepository.updateIngredient(id, ingredientWithDate);
 }
 
 export const deleteIngredient = (id: string) => {
