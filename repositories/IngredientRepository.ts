@@ -2,6 +2,7 @@ import { Ingredient } from "../models/Ingredient.ts";
 import { ObjectId } from "../deps.ts";
 import { db } from "../config/database.ts";
 import NotFound from "../errors/NotFound.ts";
+import { convertToIngredient } from "./dbos/IngredientDBO.ts";
 
 const collection = db.collection("ingredients");
 
@@ -16,18 +17,19 @@ export const createIngredient = async (ingredient: Ingredient): Promise<Ingredie
 }
 
 export const getIngredients = async (): Promise<Ingredient[]> => {
-    return await collection.find({}).toArray();
+    const ingredientsDBO = await collection.find({}).toArray();
+    return ingredientsDBO.map(convertToIngredient);
 }
 
 export const getIngredientById = async (id: string): Promise<Ingredient> => {
     const objectId = new ObjectId(id);
-    const ingredient = await collection.findOne({ _id: objectId });
+    const ingredientDBO = await collection.findOne({ _id: objectId });
 
-    if (!ingredient) {
+    if (!ingredientDBO) {
         throw new NotFound("Aucun ingrédient trouvé pour cet ID");
     }
 
-    return ingredient;
+    return convertToIngredient(ingredientDBO);
 }
 
 export const updateIngredient = async (id: string, ingredient: Ingredient): Promise<boolean> => {
