@@ -1,7 +1,7 @@
 import {Recette} from "../models/Recette.ts";
 import {db} from "../config/database.ts";
 import { ObjectId } from "npm:mongodb@5.6.0";
-import {Ingredient} from "../models/Ingredient.ts";
+import NotFound from "../errors/NotFound.ts";
 
 const collection = db.collection("recettes");
 
@@ -21,7 +21,13 @@ export const getRecettes = async (): Promise<Recette[]> => {
 
 export const getRecetteById = async (id: string): Promise<Recette> => {
     const objectId = new ObjectId(id);
-    return await collection.findOne({ _id: objectId });
+    const recette = await collection.findOne({ _id: objectId });
+
+    if (!recette) {
+        throw new NotFound("Aucune recette trouvé pour cet ID");
+    }
+
+    return recette;
 }
 
 export const deleteRecette = async (id: string): Promise<boolean> => {
@@ -31,6 +37,12 @@ export const deleteRecette = async (id: string): Promise<boolean> => {
 
 export const updateRecette = async (id: string, recette: Recette): Promise<boolean> => {
     const objectId = new ObjectId(id);
-    return await collection.updateOne({ _id: objectId }, { $set: recette });
+const result = await collection.updateOne({ _id: objectId }, { $set: recette });
+
+    if (result.modifiedCount === 0) {
+        throw new NotFound("Aucune recette trouvé pour cet ID");
+    }
+
+    return true;
 }
 

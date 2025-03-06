@@ -1,12 +1,10 @@
 import {Recette} from "../models/Recette.ts";
 import * as recetteRepository from "../repositories/RecetteRepository.ts"
-import * as ingredientRepository from "../repositories/IngredientRepository.ts";
-import {Ingredient} from "../models/Ingredient.ts";
 
 export const createRecette = (recette: Recette) => {
     const recetteWithDate = {
         ...recette,
-        createdAt: new Date(),
+        createdDate: new Date(),
     };
     return recetteRepository.createRecette(recetteWithDate);
 }

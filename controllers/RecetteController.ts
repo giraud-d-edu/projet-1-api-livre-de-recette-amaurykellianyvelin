@@ -1,6 +1,6 @@
-import {Context} from "../deps.ts";
+import {Context, ObjectId} from "../deps.ts";
 import * as recetteService from "../services/RecetteService.ts";
-import * as ingredientService from "../services/IngredientService.ts";
+import BadRequest from "../errors/BadRequest.ts";
 
 export const createRecette = async (ctx: Context) => {
     const body = await ctx.request.body.json();
@@ -23,6 +23,13 @@ export const getRecettes = async (ctx: Context) => {
 
 export const getRecetteById = async (ctx: Context) => {
     const id = ctx.params.id;
+
+    if (!ObjectId.isValid(id)) {
+        throw new BadRequest(
+            "ID invalide : doit être un ObjectId"
+        );
+    }
+
     const recette = await recetteService.getRecetteById(id);
     ctx.response.status = 200; ctx.response.body = {
         recette
@@ -32,6 +39,12 @@ export const getRecetteById = async (ctx: Context) => {
 export const deleteRecette = async (ctx: Context) => {
     const id = ctx.params.id;
 
+    if (!ObjectId.isValid(id)) {
+        throw new BadRequest(
+            "ID invalide : doit être un ObjectId"
+        );
+    }
+
     await recetteService.deleteRecette(id);
     ctx.response.status = 200; ctx.response.body = {
         message: "Recette supprimé avec succès."
@@ -40,6 +53,13 @@ export const deleteRecette = async (ctx: Context) => {
 
 export const updateRecette = async (ctx: Context) => {
     const id = ctx.params.id;
+
+    if (!ObjectId.isValid(id)) {
+        throw new BadRequest(
+            "ID invalide : doit être un ObjectId"
+        );
+    }
+
     const body = await ctx.request.body.json();
 
     await recetteService.updateRecette(id, body);
