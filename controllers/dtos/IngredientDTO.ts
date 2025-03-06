@@ -4,7 +4,7 @@ export interface IngredientDTO {
     name: string;
 }
 
-export function convertToIngredientNameDto(ingredient: Ingredient): IngredientDTO {
+export function convertToIngredientDto(ingredient: Ingredient): IngredientDTO {
     return {
         name: ingredient.name
     };

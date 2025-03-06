@@ -1,6 +1,6 @@
 import * as ingredientRepository from "../repositories/IngredientRepository.ts";
 import { Ingredient } from "../models/Ingredient.ts";
-import { convertToIngredientNameDto } from "../controllers/dtos/IngredientDTO.ts"
+import { convertToIngredientDto } from "../controllers/dtos/IngredientDTO.ts"
 
 export const createIngredient = (ingredient: Ingredient) => {
     const ingredientWithDate = {
@@ -9,21 +9,21 @@ export const createIngredient = (ingredient: Ingredient) => {
     };
     return ingredientRepository.createIngredient(ingredientWithDate)
         .then((ingredient) => {
-            return convertToIngredientNameDto(ingredient);
+            return convertToIngredientDto(ingredient);
         });
 }
 
 export const getIngredients = () => {
     return ingredientRepository.getIngredients()
         .then((ingredients) => {
-            return ingredients.map((ingredient) => convertToIngredientNameDto(ingredient));
+            return ingredients.map((ingredient) => convertToIngredientDto(ingredient));
         });
 }
 
 export const getIngredientById = (id: string) => {
     return ingredientRepository.getIngredientById(id)
         .then((ingredient) => {
-            return convertToIngredientNameDto(ingredient);
+            return convertToIngredientDto(ingredient);
         });
 }
 
