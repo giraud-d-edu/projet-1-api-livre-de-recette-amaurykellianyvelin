@@ -4,7 +4,7 @@ import { Ingredient } from "../models/Ingredient.ts";
 export const createIngredient = (ingredient: Ingredient) => {
     const ingredientWithDate = {
         ...ingredient,
-        createdAt: new Date(),
+        createdDate: new Date(),
     };
     return ingredientRepository.createIngredient(ingredientWithDate);
 }
