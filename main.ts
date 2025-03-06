@@ -1,6 +1,6 @@
 import { Application } from "./deps.ts";
 import router from "./routes/routes.ts";
-import { errorHandler } from "./middlewares/errorHandler.ts";
+import { errorHandler } from "./middlewares/ErrorHandler.ts";
 
 const app = new Application();
 
