@@ -1,7 +1,6 @@
 let createdIngredientId: string;
 const BASE_URL = "http://localhost:8000";
 
-
 Deno.test("GET /ingredients doit retourner une liste d'ingrédients", async () => {
     const response = await fetch(`${BASE_URL}/ingredients`);
     if (response.status !== 200) {
@@ -34,7 +33,7 @@ Deno.test("POST /ingredients doit créer un ingrédient", async () => {
         throw new Error("La réponse ne contient pas l'ingrédient créé !");
     }
 
-    // Sauvegarder l'ID de l'ingrédient créé pour les tests suivants
+    // On garde en mémoire l'id de l'ingrédient créé pour les tests suivants
     createdIngredientId = json.ingredient._id;
     console.log(`✅ POST /ingredients réussi ! ID: ${createdIngredientId}`);
 });
@@ -94,8 +93,7 @@ Deno.test("DELETE /ingredients/:id doit supprimer un ingrédient", async () => {
         throw new Error(`Statut incorrect : ${deleteResponse.status}`);
     }
 
-    // Consommer la réponse pour éviter le leak
-    await deleteResponse.text(); // ou `await deleteResponse.body.cancel();`
+    await deleteResponse.text(); 
 
     console.log("✅ DELETE /ingredients/:id réussi !");
 });
