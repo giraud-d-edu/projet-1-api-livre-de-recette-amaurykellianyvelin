@@ -1,8 +1,8 @@
-import { Context } from "https://deno.land/x/oak@v17.1.4/mod.ts";
+import { Context, Next } from "https://deno.land/x/oak@v17.1.4/mod.ts";
 import NotFound from '../errors/NotFound.ts';
 import BadRequest from "../errors/BadRequest.ts";
 
-export const errorHandler = async (ctx: Context, next: () => Promise<void>) => {
+export const errorHandler = async (ctx: Context, next: Next) => {
     try {
         await next();
     } catch (error) {
