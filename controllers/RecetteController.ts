@@ -74,14 +74,13 @@ export const updateRecette = async (ctx: Context) => {
             "ID invalide : doit être un ObjectId"
         );
     }
+    const body = await ctx.request.body.json();
 
     const validationError = validateRecetteDTO(body);
     if (validationError) {
         sendErrorResponse(ctx, 400, validationError);
         return;
     }
-
-    const body = await ctx.request.body.json();
 
     await recetteService.updateRecette(id, body);
     ctx.response.status = 200;

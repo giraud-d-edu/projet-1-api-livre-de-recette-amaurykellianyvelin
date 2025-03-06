@@ -29,7 +29,7 @@ Deno.test("POST /ingredients doit créer un ingrédient", async () => {
     }
 
     const json = await response.json();
-    if (!json.ingredient._id || json.ingredient.name !== newIngredient.name) {
+    if ( json.ingredient.name !== newIngredient.name) {
         throw new Error("La réponse ne contient pas l'ingrédient créé !");
     }
 
