@@ -25,9 +25,12 @@ export const getRecetteById = async (ctx: Context) => {
     const id = ctx.params.id;
 
     if (!ObjectId.isValid(id)) {
-        throw new BadRequest(
-            "ID invalide : doit être un ObjectId"
-        );
+        if (id === "coffee") {
+            ctx.response.status = 418;
+            ctx.response.body = { error: "I'm a teapot - ID cannot be 'coffee'" };
+            return;
+        }
+        throw new BadRequest("Invalid ID: must be an ObjectId");
     }
 
     const recette = await recetteService.getRecetteById(id);
