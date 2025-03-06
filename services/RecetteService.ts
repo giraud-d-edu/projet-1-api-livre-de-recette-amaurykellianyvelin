@@ -4,7 +4,7 @@ import * as recetteRepository from "../repositories/RecetteRepository.ts"
 export const createRecette = (recette: Recette) => {
     const recetteWithDate = {
         ...recette,
-        createdAt: new Date(),
+        createdDate: new Date(),
     };
     return recetteRepository.createRecette(recetteWithDate);
 }
