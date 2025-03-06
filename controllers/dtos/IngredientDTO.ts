@@ -1,15 +1,11 @@
-import { Ingredient } from "../../models/ingredient";
+import { Ingredient } from "../../models/Ingredient.ts";
 
 export interface IngredientDTO {
     name: string;
-    createdDate?: Date;
-    updatedDate?: Date;
 }
 
-export function toIngredientDTO(ingredient: Ingredient): Ingredient {
+export function convertToIngredientDto(ingredient: Ingredient): IngredientDTO {
     return {
-        name: ingredient.name,
-        createdDate: ingredient.createdDate,
-        updatedDate: ingredient.updatedDate
+        name: ingredient.name
     };
 }
