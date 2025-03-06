@@ -1,6 +1,5 @@
 import {Context, ObjectId} from "../deps.ts";
 import * as recetteService from "../services/RecetteService.ts";
-import * as ingredientService from "../services/IngredientService.ts";
 import BadRequest from "../errors/BadRequest.ts";
 
 export const createRecette = async (ctx: Context) => {
