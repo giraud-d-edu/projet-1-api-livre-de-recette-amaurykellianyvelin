@@ -5,7 +5,7 @@ const MONGODB_URI = Deno.env.get("MONGODB_URI");
 const DB_NAME = Deno.env.get("DB_NAME");
 
 if (!MONGODB_URI) {
-    console.error("❌ MONGO_URI is not set");
+    console.error("❌ MONGODB_URI is not set");
     Deno.exit(1);
 }
 
