@@ -13,11 +13,7 @@ let db: any;
 
 try {
     console.log("⏳ Connexion à MongoDB...");
-    const client = new MongoClient(MONGODB_URI, {
-        serverSelectionTimeoutMS: 60000,
-        connectTimeoutMS: 60000,
-        socketTimeoutMS: 60000,
-    });
+    const client = new MongoClient(MONGODB_URI);
     await client.connect();
     db = client.db(DB_NAME);
     console.log("✅ Connecté à MongoDB");
