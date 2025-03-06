@@ -5,4 +5,6 @@ export interface Recette {
     cooking_time: number;
     ingredients: { ingredient_id: string; quantity: string }[];
     instructions: string;
+    createdDate: Date;
+    updatedDate: Date;
 }
