@@ -1,5 +1,6 @@
 import * as ingredientService from "../services/IngredientService.ts";
-import { Context } from "../deps.ts";
+import { Context, ObjectId } from "../deps.ts";
+import BadRequest from "../errors/BadRequest.ts";
 
 export const createIngredient = async (ctx: Context) => {
     const body = await ctx.request.body.json();
@@ -22,6 +23,13 @@ export const getIngredients = async (ctx: Context) => {
 
 export const getIngredientById = async (ctx: Context) => {
     const id = ctx.params.id;
+
+    if (!ObjectId.isValid(id)) {
+        throw new BadRequest(
+            "ID invalide : doit être un ObjectId"
+        );
+    }
+
     const ingredient = await ingredientService.getIngredientById(id);
     ctx.response.status = 200; ctx.response.body = {
         ingredient
@@ -30,6 +38,13 @@ export const getIngredientById = async (ctx: Context) => {
 
 export const updateIngredient = async (ctx: Context) => {
     const id = ctx.params.id;
+
+    if (!ObjectId.isValid(id)) {
+        throw new BadRequest(
+            "ID invalide : doit être un ObjectId"
+        );
+    }
+
     const body = await ctx.request.body.json();
 
     await ingredientService.updateIngredient(id, body);
@@ -40,6 +55,12 @@ export const updateIngredient = async (ctx: Context) => {
 
 export const deleteIngredient = async (ctx: Context) => {
     const id = ctx.params.id;
+
+    if (!ObjectId.isValid(id)) {
+        throw new BadRequest(
+            "ID invalide : doit être un ObjectId"
+        );
+    }
 
     await ingredientService.deleteIngredient(id);
     ctx.response.status = 200; ctx.response.body = {
