@@ -5,7 +5,7 @@ export interface RecetteDTO {
     name: string;
     preparation_time: number;
     cooking_time: number;
-    ingredients: { ingredient_id: string; quantity: string }[];
+    ingredients: { ingredient_id: string; quantity: string }[]; // TODO : Utiliser IngredientDTO[]
     instructions: string;
 }
 

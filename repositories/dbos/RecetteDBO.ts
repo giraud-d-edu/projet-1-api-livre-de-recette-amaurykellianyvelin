@@ -6,7 +6,7 @@ export interface RecetteDBO {
     name: string;
     preparation_time: number;
     cooking_time: number;
-    ingredients: { ingredient_id: string; quantity: string }[];
+    ingredients: { ingredient_id: string; quantity: string }[]; // TODO : Utiliser IngredientDbo[] - en l'état il n'y a pas de lien avec vos entités Ingrédient et recette
     instructions: string;
     createdDate: Date;
     updatedDate: Date;

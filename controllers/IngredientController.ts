@@ -34,7 +34,7 @@ export const getIngredientById = async (ctx: Context) => {
 
     if (!ObjectId.isValid(id)) {
         throw new BadRequest(
-            "ID invalide : doit être un ObjectId"
+            "ID invalide : doit être un ObjectId" // FIXME le terme ObjectId fait référence à un type de mongoDb, il faudrait le changer
         );
     }
 
