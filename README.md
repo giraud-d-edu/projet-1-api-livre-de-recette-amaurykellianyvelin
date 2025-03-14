@@ -18,13 +18,36 @@ Suite à des soucis d'accès à l'api Mongo nous avons passer la base en local a
     DB_NAME=R7
   ```
 2. ### Build la base mongo docker
-`docker compose up -d`
+``` bash
+docker compose up -d
+```
+
 3. ## Lancer l'app avec deno 
-` deno run --allow-all main.ts`
+``` bash
+deno run --allow-all main.ts
+```
  
 --- 
 # Bonus
 ## Lancement des tests
-` deno test --allow-all`
+
+``` bash
+deno test --allow-all
+```
 
 ### [Que faire si on demande la recette du café ?](localhost:8000/recipes/coffe)
+
+
+# Feedbacks
+
+## Tests avec Deno KO
+
+TODO résoudre => `FAILED | 0 passed | 5 failed (7ms)`
+
+## Test avec Postamn KO
+
+TODO : Au post il faut recupérer l'id de la ressource créer pour ensuite l'utiliser lors des PUT et DELETE (les id sont générer par mongo et unique, on ne peux pas en récupérer un ancien)
+
+## Structure
+
+TODO : should have : Essayer de faire une arboresscence moins plate car c'est difficile de s'y retrouver (utiliser un dossier src)

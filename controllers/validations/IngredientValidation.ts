@@ -2,6 +2,8 @@ import { IngredientDTO } from "../dtos/IngredientDTO.ts";
 
 const MAX_NAME_LENGTH = 50;
 
+// TODO : shoud have : Pour la validation des données vous pouvez utiliser zod
+
 export const validateIngredientDTO = (body: any): string | null => {
 
     // Vérifie si 'name' est défini
