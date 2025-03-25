@@ -1,4 +1,4 @@
-import { Router } from "../deps.ts";
+import { Router } from "../../deps.ts";
 import * as ingredientController from "../controllers/IngredientController.ts"
 import * as recetteController from "../controllers/RecetteController.ts"
 

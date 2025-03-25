@@ -1,4 +1,4 @@
-import { MongoClient } from "../deps.ts";
+import { MongoClient } from "../../deps.ts";
 import "jsr:@std/dotenv/load";
 
 const MONGODB_URI = Deno.env.get("MONGODB_URI");

@@ -1,4 +1,4 @@
-import {Context, ObjectId} from "../deps.ts";
+import {Context, ObjectId} from "../../deps.ts";
 import * as recetteService from "../services/RecetteService.ts";
 import BadRequest from "../errors/BadRequest.ts";
 import {sendErrorResponse} from "./validations/errors.ts";
