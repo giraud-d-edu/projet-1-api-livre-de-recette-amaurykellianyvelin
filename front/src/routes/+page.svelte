@@ -1,63 +1,9 @@
 <script>
   import { page } from '$app/stores';
-  import { recettes, loadRecettes } from '$lib/stores/produits.js';
+  import { recettes, loadRecettes } from '$lib/stores/recipe.ts';
   import {onMount} from "svelte";
-
-  let produits = [
-    {
-      id: 1,
-      titre: "Produit 1",
-      description: "Description du produit 1",
-      image: "https://picsum.photos/300/200?random=1"
-    },
-    {
-      id: 2,
-      titre: "Produit 2",
-      description: "Description du produit 2",
-      image: "https://picsum.photos/300/200?random=2"
-    },
-    {
-      id: 3,
-      titre: "Produit 3",
-      description: "Description du produit 3",
-      image: "https://picsum.photos/300/200?random=3"
-    }
-  ];
-
   onMount(loadRecettes);
 </script>
-
-<nav>
-  <ul>
-    <li class:active={$page.url.pathname === '/'}>
-      <a href="/">Accueil</a>
-    </li>
-    <li class:active={$page.url.pathname === '/about'}>
-      <a href="/about">À propos</a>
-    </li>
-    <li class:active={$page.url.pathname === '/contact'}>
-      <a href="/contact">Contact</a>
-    </li>
-    <li class:active={$page.url.pathname === '/postrecipe'}>
-      <a href="/postrecipe">Create Recipe</a>
-    </li>
-  </ul>
-</nav>
-
-<h1>Nos produits</h1>
-
-<div class="grid">
-  {#each produits as produit}
-    <div class="produit">
-      <img src={produit.image} alt={produit.titre} />
-      <h2>{produit.titre}</h2>
-      <p>{produit.description}</p>
-      <a href={`/produit/${produit.id}`}>
-        <button>Voir détails</button>
-      </a>
-    </div>
-  {/each}
-</div>
 
 <h1>Nos Recettes</h1>
 
@@ -66,7 +12,7 @@
     <div class="recette">
       <h2>{recette.name}</h2>
       <p>{recette.instructions}</p>
-      <a href={`/produit/${recette.id}`}>
+      <a href={`/recipe/${recette.id}`}>
         <button>Voir détails</button>
     </div>
   {/each}

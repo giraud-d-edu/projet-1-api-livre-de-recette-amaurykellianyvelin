@@ -1,5 +1,5 @@
 import { writable } from "svelte/store";
-import {getRecetteById, getRecettes} from "../services/api";
+import {getRecetteById, getRecettes} from "../services/api.js";
 
 export interface Recette {
     id: string;

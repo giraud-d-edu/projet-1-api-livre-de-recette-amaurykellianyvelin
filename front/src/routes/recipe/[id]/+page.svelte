@@ -1,7 +1,7 @@
 <script>
     import { page } from '$app/stores';
     import { onMount } from "svelte";
-    import {loadRecettes, loadRecettesById} from "$lib/stores/produits.js";
+    import {loadRecettes, loadRecettesById} from "$lib/stores/recipe.js";
 
     let id;
     $: id = $page.params.id;
