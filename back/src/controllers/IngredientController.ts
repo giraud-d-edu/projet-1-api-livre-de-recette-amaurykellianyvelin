@@ -1,5 +1,5 @@
 import * as ingredientService from "../services/IngredientService.ts";
-import {Context, ObjectId} from "../deps.ts";
+import {Context, ObjectId} from "../../deps.ts";
 import BadRequest from "../errors/BadRequest.ts";
 import {validateIngredientDTO} from "./validations/IngredientValidation.ts";
 import {sendErrorResponse} from "./validations/errors.ts";

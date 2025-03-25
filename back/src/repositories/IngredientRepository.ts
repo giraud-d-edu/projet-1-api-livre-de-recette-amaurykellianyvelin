@@ -1,5 +1,5 @@
 import { Ingredient } from "../models/Ingredient.ts";
-import { ObjectId } from "../deps.ts";
+import { ObjectId } from "../../deps.ts";
 import { db } from "../config/database.ts";
 import NotFound from "../errors/NotFound.ts";
 import { convertToIngredient } from "./dbos/IngredientDBO.ts";
