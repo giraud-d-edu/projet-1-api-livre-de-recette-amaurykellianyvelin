@@ -1,11 +1,12 @@
-import { Recette } from "../../models/Recette.ts";
+import {Recette} from "../../services/models/Recette.ts";
+import {IngredientDTO} from "./IngredientDTO.ts";
 
 export interface RecetteDTO {
     id: string;
     name: string;
     preparation_time: number;
     cooking_time: number;
-    ingredients: { ingredient_id: string; quantity: string }[];
+    ingredients: IngredientDTO[];
     instructions: string;
 }
 

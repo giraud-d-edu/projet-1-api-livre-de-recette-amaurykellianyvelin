@@ -1,5 +1,5 @@
 import { ObjectId } from "../../../deps.ts";
-import { Ingredient } from "../../models/Ingredient.ts";
+import { Ingredient } from "../../services/models/Ingredient.ts";
 
 export interface IngredientDBO {
     _id: ObjectId;

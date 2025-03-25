@@ -1,5 +1,5 @@
 import * as ingredientRepository from "../repositories/IngredientRepository.ts";
-import { Ingredient } from "../models/Ingredient.ts";
+import { Ingredient } from "./models/Ingredient.ts";
 import { convertToIngredientDto } from "../controllers/dtos/IngredientDTO.ts"
 
 export const createIngredient = (ingredient: Ingredient) => {

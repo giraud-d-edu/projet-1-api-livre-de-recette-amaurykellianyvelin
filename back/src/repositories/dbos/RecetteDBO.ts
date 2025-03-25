@@ -1,12 +1,13 @@
-import { ObjectId } from "../../../deps.ts";
-import { Recette } from "../../models/Recette.ts";
+import {ObjectId} from "../../../deps.ts";
+import {Recette} from "../../services/models/Recette.ts";
+import {IngredientDBO} from "./IngredientDBO.ts";
 
 export interface RecetteDBO {
     _id: ObjectId;
     name: string;
     preparation_time: number;
     cooking_time: number;
-    ingredients: { ingredient_id: string; quantity: string }[];
+    ingredients: IngredientDBO[];
     instructions: string;
     createdDate: Date;
     updatedDate: Date;

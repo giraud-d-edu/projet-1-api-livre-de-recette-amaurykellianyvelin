@@ -34,7 +34,7 @@ Deno.test("POST /ingredients doit créer un ingrédient", async () => {
     }
 
     // On garde en mémoire l'id de l'ingrédient créé pour les tests suivants
-    createdIngredientId = json.ingredient._id;
+    createdIngredientId = json.ingredient.id;
     console.log(`✅ POST /ingredients réussi ! ID: ${createdIngredientId}`);
 });
 
@@ -49,7 +49,7 @@ Deno.test("GET /ingredients/:id doit retourner un ingrédient", async () => {
     }
 
     const json = await getResponse.json();
-    if (json.ingredient._id !== createdIngredientId) {
+    if (json.ingredient.id !== createdIngredientId) {
         throw new Error("L'ingrédient retourné ne correspond pas !");
     }
 
@@ -73,7 +73,7 @@ Deno.test("PUT /ingredients/:id doit mettre à jour un ingrédient", async () =>
     }
 
     const json = await putResponse.json();
-    if (json.message !== "Ingrédient modifié avec succès.") {
+    if (json.message !== "Ingrédient mis à jour avec succès.") {
         throw new Error("L'ingrédient n'a pas été mis à jour !");
     }
 
@@ -93,7 +93,7 @@ Deno.test("DELETE /ingredients/:id doit supprimer un ingrédient", async () => {
         throw new Error(`Statut incorrect : ${deleteResponse.status}`);
     }
 
-    await deleteResponse.text(); 
+    await deleteResponse.text();
 
     console.log("✅ DELETE /ingredients/:id réussi !");
 });

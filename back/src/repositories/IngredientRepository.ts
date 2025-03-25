@@ -1,4 +1,4 @@
-import { Ingredient } from "../models/Ingredient.ts";
+import { Ingredient } from "../services/models/Ingredient.ts";
 import { ObjectId } from "../../deps.ts";
 import { db } from "../config/database.ts";
 import NotFound from "../errors/NotFound.ts";

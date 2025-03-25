@@ -1,4 +1,4 @@
-import { Ingredient } from "../../models/Ingredient.ts";
+import { Ingredient } from "../../services/models/Ingredient.ts";
 
 export interface IngredientDTO {
     id: string;

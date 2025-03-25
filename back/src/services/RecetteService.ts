@@ -1,4 +1,4 @@
-import { Recette } from "../models/Recette.ts";
+import { Recette } from "./models/Recette.ts";
 import * as recetteRepository from "../repositories/RecetteRepository.ts"
 import { convertToRecetteDto } from "../controllers/dtos/RecetteDTO.ts"
 

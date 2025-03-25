@@ -1,4 +1,4 @@
-import { Recette } from "../models/Recette.ts";
+import { Recette } from "../services/models/Recette.ts";
 import { db } from "../config/database.ts";
 import { ObjectId } from "npm:mongodb@5.6.0";
 import NotFound from "../errors/NotFound.ts";
