@@ -27,8 +27,12 @@ export async function loadRecettes() {
 
 export async function loadRecettesById(id: string){
     try {
-        const data = await getRecetteById(id)
-        recette.set(data);
+        const data = await getRecetteById(id);
+        if (data && data.recette) {
+            recette.set(data.recette);
+        } else {
+            console.error("Aucune recette trouvée pour l'ID :", id);
+        }
     } catch (error) {
         console.error("Erreur lors du chargement de la recettes :", error);
     }
