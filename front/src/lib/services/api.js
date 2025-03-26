@@ -62,7 +62,7 @@ export async function createRecette(data) {
 
 export async function getRecettes() {
     try {
-        const response = await fetch("http://localhost:8000/recipes");
+        const response = await fetch(`${API_BASE_URL}/recipes`);
         if (!response.ok) {
             throw new Error(`Erreur API (${response.status})`);
         }
