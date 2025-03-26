@@ -1,117 +1,33 @@
 const API_BASE_URL = "http://localhost:8000";
 
-export async function createIngredient(data) {
-    return fetch(`${API_BASE_URL}/ingredients`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-    }).then(res => res.json());
-}
-
-export async function getIngredients() {
-    return fetch(`${API_BASE_URL}/ingredients`)
-        .then(res => res.json());
-}
-
-export async function getIngredientById(id) {
-    return fetch(`${API_BASE_URL}/ingredients/${id}`)
-        .then(res => res.json());
-}
-
-export async function updateIngredient(id, data) {
-    return fetch(`${API_BASE_URL}/ingredients/${id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-    }).then(res => res.json());
-}
-
-export async function deleteIngredient(id) {
-    return fetch(`${API_BASE_URL}/ingredients/${id}`, {
-        method: "DELETE"
-    }).then(res => res.json());
-}
-
-export async function createRecette(data) {
+async function fetchAPI(endpoint, method = "GET", data = null) {
     try {
-        const response = await fetch(`${API_BASE_URL}/recipes`, {
-            method: "POST",
+        const options = {
+            method,
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data)
-        });
+        };
+        if (data) options.body = JSON.stringify(data);
 
-        if (response.status !== 201) {
-            throw new Error(`Erreur API (${response.status})`);
-        }
+        const response = await fetch(`${API_BASE_URL}${endpoint}`, options);
+        if (!response.ok) throw new Error(`Erreur API (${response.status})`);
 
-        const responseData = await response.json();
-
-        if (!responseData || !responseData.recette) {
-            console.warn("Format inattendu de la réponse API :", responseData);
-            return { success: false, message: "Réponse API invalide" };
-        }
-
-        return { success: true, data: responseData.recette };
+        return await response.json();
     } catch (error) {
-        console.error("Erreur lors de la création de la recette :", error);
+        console.error(`Erreur lors de la requête ${method} ${endpoint} :`, error);
         return { success: false, message: error.message };
     }
 }
 
+// Gestion des Recettes 
+export const createRecette = (data) => fetchAPI("/recipes", "POST", data);
+export const getRecettes = () => fetchAPI("/recipes");
+export const getRecetteById = (id) => fetchAPI(`/recipes/${id}`);
+export const updateRecette = (id, data) => fetchAPI(`/recipes/${id}`, "PUT", data);
+export const deleteRecette = (id) => fetchAPI(`/recipes/${id}`, "DELETE");
 
-
-export async function getRecettes() {
-    try {
-        const response = await fetch(`${API_BASE_URL}/recipes`);
-        if (!response.ok) {
-            throw new Error(`Erreur API (${response.status})`);
-        }
-        const data = await response.json();
-        if (!data || !Array.isArray(data.recettes)) {
-            console.warn("Format inattendu de la réponse API :", data);
-            return { recettes: [] };
-        }
-
-        return data;
-    } catch (error) {
-        console.error("Erreur fetch recettes :", error);
-        return { recettes: [] };
-    }
-}
-
-
-
-export async function getRecetteById(id) {
-    try {
-        const response = await fetch(`${API_BASE_URL}/recipes/${id}`);
-        if (!response.ok) {
-            throw new Error(`Erreur API (${response.status})`);
-        }
-
-        const data = await response.json();
-        if (!data || typeof data !== "object") {
-            console.warn("Format inattendu de la réponse API :", data);
-            return null;
-        }
-
-        return data;
-    } catch (error) {
-        console.error("Erreur fetch recette par ID :", error);
-        return null;
-    }
-}
-
-
-export async function updateRecette(id, data) {
-    return fetch(`${API_BASE_URL}/recipes/${id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-    }).then(res => res.json());
-}
-
-export async function deleteRecette(id) {
-    return fetch(`${API_BASE_URL}/recipes/${id}`, {
-        method: "DELETE"
-    }).then(res => res.json());
-}
+// Gestion des Ingrédients
+export const createIngredient = (data) => fetchAPI("/ingredients", "POST", data);
+export const getIngredients = () => fetchAPI("/ingredients");
+export const getIngredientById = (id) => fetchAPI(`/ingredients/${id}`);
+export const updateIngredient = (id, data) => fetchAPI(`/ingredients/${id}`, "PUT", data);
+export const deleteIngredient = (id) => fetchAPI(`/ingredients/${id}`, "DELETE");
