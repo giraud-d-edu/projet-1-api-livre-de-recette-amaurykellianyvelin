@@ -1,13 +1,6 @@
 import { writable } from "svelte/store";
 import {getIngredientById, getIngredients} from "../services/api.js";
-
-export interface Ingredient {
-    id: string;
-    name: string;
-    category: string;
-    createdDate: Date;
-    updatedDate: Date;
-}
+import type {Ingredient} from "$lib/models/IIngredient";
 
 export const ingredients = writable<Ingredient[]>([]);
 export const ingredient = writable<Ingredient | null>(null);

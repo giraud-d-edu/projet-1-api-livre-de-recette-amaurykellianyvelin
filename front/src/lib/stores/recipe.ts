@@ -1,22 +1,6 @@
 import { writable } from "svelte/store";
 import {getIngredientById, getRecetteById, getRecettes, deleteRecette, updateRecette } from "../services/api.js";
-
-export interface IngredientDetail {
-    id: string;
-    name: string;
-    quantity: string;
-}
-
-export interface Recette {
-    id: string;
-    name: string;
-    preparation_time: number;
-    cooking_time: number;
-    ingredients: IngredientDetail[];
-    instructions: string;
-    createdDate: Date;
-    updatedDate: Date;
-}
+import type {Recette} from "$lib/models/IRecipe";
 
 export const recettes = writable<Recette[]>([]);
 export const recette = writable<Recette>();
@@ -36,7 +20,7 @@ export async function loadRecettesById(id: string){
         const data = await getRecetteById(id);
         if (data && data.recette) {
             const ingredientsDetails = await Promise.all(
-                data.recette.ingredients.map(async (ing) => {
+                data.recette.ingredients.map(async (ing: { ingredient_id: any; quantity: any; }) => {
                     const ingredientData = await getIngredientById(ing.ingredient_id);
                     return {
                         id: ing.ingredient_id,
