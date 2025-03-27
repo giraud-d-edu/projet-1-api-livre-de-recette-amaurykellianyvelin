@@ -1,7 +1,6 @@
 <script>
-  import { page } from '$app/stores';
-  import { recettes, loadRecettes } from '$lib/stores/recipe.ts';
-  import {onMount} from "svelte";
+  import { recettes, loadRecettes } from "$lib/stores/recipe";
+  import { onMount } from "svelte";
   onMount(loadRecettes);
 </script>
 
@@ -14,6 +13,7 @@
       <p>{recette.instructions}</p>
       <a href={`/recipe/${recette.id}`}>
         <button>Voir détails</button>
+      </a>
     </div>
   {/each}
 </div>
@@ -23,26 +23,6 @@
 </main>
 
 <style>
-  nav {
-    background-color: #f5f5f5;
-    padding: 1em;
-  }
-
-  ul {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  li {
-    margin-right: 1em;
-  }
-
-  .active {
-    font-weight: bold;
-  }
-
   main {
     padding: 1em;
   }
@@ -53,17 +33,11 @@
     gap: 1em;
   }
 
-  .produit, .recette {
+  .recette {
     border: 1px solid #ddd;
     padding: 1em;
     border-radius: 8px;
     text-align: center;
-  }
-
-  img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
   }
 
   button {
