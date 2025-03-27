@@ -1,20 +1,20 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/5DxnKIye)
+# 🚀 API CRUD de Recettes et Ingrédients avec Deno
 
+## 🌟 Prérequis
 
----
+Avant de commencer, assurez-vous d'avoir installé les outils suivants :
 
-# Prérequis
-
-- Deno
-- Docker
-
-Suite à des soucis d'accès à l'api Mongo nous avons passer la base en local avec docker
+- [Deno](https://deno.land/)
+- [Docker](https://www.docker.com/) via Docker Compose
+- [MongoDB](https://www.mongodb.com/) via Mongo Atlas
 
 ---
 
-# Lancement de l'application
+# Lancement de l'application en local
 
 1. ### Créer un fichier **_.env_** dans le dossier root
+
+Renseignez le MONGODB_URI en fonction de l'environnement choisi pour la base de données, Docker ou Mongo Atlas
 
   ```
     MONGODB_URI=mongodb://admin:admin@localhost:27017
@@ -37,10 +37,17 @@ Suite à des soucis d'accès à l'api Mongo nous avons passer la base en local a
 
 # Bonus
 
-## Lancement des tests
+1. ### Lancement des tests
 
 ``` bash
     deno test --allow-all
 ```
 
-### [Que faire si on demande la recette du café ?](localhost:8000/recipes/coffe)
+2. ### Que faire si on demande la recette du café ?
+[cliquez-ici](https://comfortable-hawk-68-96ska177ssd6.deno.dev/recipes/coffe)
+
+
+## 🌍 API Déployée
+
+L'API est accessible à l'URL suivante :  
+🔗 **[https://comfortable-hawk-68-96ska177ssd6.deno.dev/](https://comfortable-hawk-68-96ska177ssd6.deno.dev/)**
