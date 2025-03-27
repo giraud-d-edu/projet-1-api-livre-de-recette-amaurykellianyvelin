@@ -1,7 +1,7 @@
 <script>
     import { page } from '$app/stores';
     import { onMount } from "svelte";
-    import { recettes, loadRecettes } from '$lib/stores/recipe.ts';
+    import { loadRecettes } from '$lib/stores/recipe.ts';
 
     onMount(loadRecettes);
 </script>
@@ -19,6 +19,12 @@
         </li>
         <li class:active={$page.url.pathname === '/postrecipe'}>
             <a href="/postrecipe">Create Recipe</a>
+        </li>
+        <li class:active={$page.url.pathname === '/ingredient'}>
+            <a href="/ingredient">Ingredient</a>
+        </li>
+        <li class:active={$page.url.pathname === '/postingredient'}>
+            <a href="/postingredient">Create Ingredient</a>
         </li>
     </ul>
 </nav>
