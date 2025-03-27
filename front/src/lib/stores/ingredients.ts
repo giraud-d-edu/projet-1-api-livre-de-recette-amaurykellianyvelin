@@ -1,0 +1,37 @@
+import { writable } from "svelte/store";
+import {getIngredientById, getIngredients} from "../services/api.js";
+
+export interface Ingredient {
+    id: string;
+    name: string;
+    createdDate: Date;
+    updatedDate: Date;
+}
+
+export const ingredients = writable<Ingredient[]>([]);
+export const ingredient = writable<Ingredient | null>(null);
+
+export async function loadIngredients() {
+    try {
+        const data = await getIngredients();
+        ingredients.set(data || []);
+    } catch (error) {
+        console.error("Erreur lors du chargement des ingrédients :", error);
+        ingredients.set([]);
+    }
+}
+
+export async function loadIngredientById(id: string) {
+    try {
+        const data = await getIngredientById(id);
+        if (data) {
+            ingredient.set(data);
+        } else {
+            console.error("Aucun ingrédient trouvé pour l'ID :", id);
+            ingredient.set(null);
+        }
+    } catch (error) {
+        console.error("Erreur lors du chargement de l'ingrédient :", error);
+        ingredient.set(null);
+    }
+}

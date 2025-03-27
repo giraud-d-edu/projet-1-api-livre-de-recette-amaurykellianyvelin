@@ -1,0 +1,26 @@
+[{
+  "_id": {
+    "$oid": "67e4232b8e127ba33f15e03f"
+  },
+  "name": "Omelette au fromage",
+  "preparation_time": 5,
+  "cooking_time": 5,
+  "ingredients": [
+    {
+      "ingredient_id": "67e422c58e127ba33f15e03e",
+      "quantity": "2"
+    },
+    {
+      "ingredient_id": "67e422618e127ba33f15e03c",
+      "quantity": "50g"
+    },
+    {
+      "ingredient_id": "67e422288e127ba33f15e034",
+      "quantity": "1 cuillère à soupe"
+    }
+  ],
+  "instructions": "Battre les œufs, cuire dans la poêle avec du beurre, ajouter le fromage, et plier l'omelette.",
+  "createdDate": {
+    "$date": "2025-03-26T15:54:19.223Z"
+  }
+}]

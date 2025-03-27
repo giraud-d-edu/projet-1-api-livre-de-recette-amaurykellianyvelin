@@ -1,0 +1,189 @@
+[{
+  "_id": {
+    "$oid": "67e421b68e127ba33f15e02a"
+  },
+  "name": "Tomate",
+  "createdDate": {
+    "$date": "2025-03-26T15:48:06.885Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67e421c38e127ba33f15e02b"
+  },
+  "name": "Oignon",
+  "createdDate": {
+    "$date": "2025-03-26T15:48:19.769Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67e421c88e127ba33f15e02c"
+  },
+  "name": "Ail",
+  "createdDate": {
+    "$date": "2025-03-26T15:48:24.978Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67e422048e127ba33f15e02d"
+  },
+  "name": "Basilic",
+  "createdDate": {
+    "$date": "2025-03-26T15:49:24.579Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67e422088e127ba33f15e02e"
+  },
+  "name": "Poivron",
+  "createdDate": {
+    "$date": "2025-03-26T15:49:28.853Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67e4220d8e127ba33f15e02f"
+  },
+  "name": "Courgette",
+  "createdDate": {
+    "$date": "2025-03-26T15:49:33.582Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67e422128e127ba33f15e030"
+  },
+  "name": "Aubergine",
+  "createdDate": {
+    "$date": "2025-03-26T15:49:38.032Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67e422168e127ba33f15e031"
+  },
+  "name": "Carotte",
+  "createdDate": {
+    "$date": "2025-03-26T15:49:42.316Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67e4221b8e127ba33f15e032"
+  },
+  "name": "Pomme de terre",
+  "createdDate": {
+    "$date": "2025-03-26T15:49:47.458Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67e422208e127ba33f15e033"
+  },
+  "name": "Lait",
+  "createdDate": {
+    "$date": "2025-03-26T15:49:52.713Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67e422288e127ba33f15e034"
+  },
+  "name": "Beurre",
+  "createdDate": {
+    "$date": "2025-03-26T15:50:00.206Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67e422398e127ba33f15e035"
+  },
+  "name": "Crème fraîche",
+  "createdDate": {
+    "$date": "2025-03-26T15:50:17.957Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67e422408e127ba33f15e036"
+  },
+  "name": "Farine",
+  "createdDate": {
+    "$date": "2025-03-26T15:50:24.068Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67e422468e127ba33f15e037"
+  },
+  "name": "Sucre",
+  "createdDate": {
+    "$date": "2025-03-26T15:50:30.640Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67e4224d8e127ba33f15e038"
+  },
+  "name": "Riz",
+  "createdDate": {
+    "$date": "2025-03-26T15:50:37.634Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67e422528e127ba33f15e039"
+  },
+  "name": "Poulet",
+  "createdDate": {
+    "$date": "2025-03-26T15:50:42.927Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67e422578e127ba33f15e03a"
+  },
+  "name": "Boeuf",
+  "createdDate": {
+    "$date": "2025-03-26T15:50:47.297Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67e4225c8e127ba33f15e03b"
+  },
+  "name": "Saumon",
+  "createdDate": {
+    "$date": "2025-03-26T15:50:52.187Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67e422618e127ba33f15e03c"
+  },
+  "name": "Fromage râpé",
+  "createdDate": {
+    "$date": "2025-03-26T15:50:57.678Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67e422678e127ba33f15e03d"
+  },
+  "name": "Épinard",
+  "createdDate": {
+    "$date": "2025-03-26T15:51:03.033Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67e422c58e127ba33f15e03e"
+  },
+  "name": "Œuf",
+  "createdDate": {
+    "$date": "2025-03-26T15:52:37.801Z"
+  }
+}]
