@@ -1,42 +1,40 @@
 <script>
-    import { page } from '$app/stores';
-    import { onMount } from "svelte";
-    import { loadRecettes } from '$lib/stores/recipe.ts';
+    import {page} from '$app/stores';
 
-    onMount(loadRecettes);
 </script>
 
 <nav>
     <ul>
-        <li class:active={$page.url.pathname === '/'}>
-            <a href="/">Accueil</a>
+        <li>
+            <a class:active={$page.url.pathname === '/'} href="/">Accueil</a>
         </li>
-        <li class:active={$page.url.pathname === '/about'}>
-            <a href="/about">À propos</a>
+        <li>
+            <a class:active={$page.url.pathname === '/about'} href="/about">À propos</a>
         </li>
-        <li class:active={$page.url.pathname === '/contact'}>
-            <a href="/contact">Contact</a>
+        <li>
+            <a class:active={$page.url.pathname === '/contact'} href="/contact">Contact</a>
         </li>
-        <li class:active={$page.url.pathname === '/postrecipe'}>
-            <a href="/postrecipe">Create Recipe</a>
+        <li>
+            <a class:active={$page.url.pathname === '/postrecipe'} href="/postrecipe">Créer Recette</a>
         </li>
-        <li class:active={$page.url.pathname === '/ingredient'}>
-            <a href="/ingredient">Ingredient</a>
+        <li>
+            <a class:active={$page.url.pathname === '/ingredient'} href="/ingredient">Ingredients</a>
         </li>
-        <li class:active={$page.url.pathname === '/postingredient'}>
-            <a href="/postingredient">Create Ingredient</a>
+        <li>
+            <a class:active={$page.url.pathname === '/postingredient'} href="/postingredient">Créer Ingredient</a>
         </li>
     </ul>
 </nav>
 
 <main>
-    <slot />
+    <slot/>
 </main>
 
 <style>
+
     nav {
-        background-color: #f5f5f5;
-        padding: 1em;
+        background-color: #515151;
+        padding: 10px;
     }
 
     ul {
@@ -46,12 +44,30 @@
         padding: 0;
     }
 
+    a {
+        text-decoration: none;
+        font-size: larger;
+        color: #f1f1f1;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    a:hover {
+        background: #ededed;
+        color: #000000;
+    }
+
     li {
-        margin-right: 1em;
+        padding: 10px;
     }
 
     .active {
-        font-weight: bold;
+        border-radius: 10px;
+        background: #139c00;
+    }
+    .active:hover{
+        background: #139c00;
+        color: #f1f1f1;
     }
 
     main {
