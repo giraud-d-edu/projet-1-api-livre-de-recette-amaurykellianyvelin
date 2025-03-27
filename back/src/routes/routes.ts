@@ -4,6 +4,10 @@ import * as recetteController from "../controllers/RecetteController.ts"
 
 const router = new Router();
 
+router.get("/", (context) => {
+    context.response.body = "Bienvenue sur la page d'accueil!";
+  });
+
 router.post("/ingredients", ingredientController.createIngredient);
 router.get("/ingredients", ingredientController.getIngredients);
 router.get("/ingredients/:id", ingredientController.getIngredientById);
