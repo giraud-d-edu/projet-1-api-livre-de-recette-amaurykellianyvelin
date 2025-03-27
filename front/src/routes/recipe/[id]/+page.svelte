@@ -20,7 +20,6 @@
     async function confirmDelete() {
         try {
             await deleteRecetteById(id);
-            console.log("Recette supprimée");
             modal.close();
             goto('/');
         } catch (error) {
@@ -31,6 +30,11 @@
     function cancelDelete() {
         modal.close();
     }
+
+    function goToEditPage() {
+        goto(`/editrecipe/${id}`);
+    }
+
 </script>
 
 <h1>Détails de la recette</h1>
@@ -49,6 +53,10 @@
 
     <h3>Instructions :</h3>
     <p>{ $recette.instructions }</p>
+
+    <button on:click={goToEditPage} class="edit-btn">
+        ✏️ Modifier la recette
+    </button>
 
     <button on:click={() => modal.open()} class="delete-btn">
         🗑️ Supprimer la recette
@@ -80,5 +88,20 @@
 
     .delete-btn:hover {
         background-color: darkred;
+    }
+
+    .edit-btn {
+        background-color: blue;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1em;
+        margin-top: 20px;
+    }
+
+    .edit-btn:hover {
+        background-color: darkblue;
     }
 </style>

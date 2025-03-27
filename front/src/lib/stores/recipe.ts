@@ -1,5 +1,5 @@
 import { writable } from "svelte/store";
-import {getIngredientById, getRecetteById, getRecettes, deleteRecette} from "../services/api.js";
+import {getIngredientById, getRecetteById, getRecettes, deleteRecette, updateRecette } from "../services/api.js";
 
 export interface IngredientDetail {
     id: string;
@@ -60,11 +60,28 @@ export async function deleteRecetteById(id: string) {
         const response = await deleteRecette(id);
         if (response.success) {
             recettes.update((currentRecettes) => currentRecettes.filter((recette) => recette.id !== id));
-            console.log("Recette supprimée avec succès");
         } else {
             console.error("Erreur lors de la suppression de la recette");
         }
     } catch (error) {
         console.error("Erreur lors de la suppression de la recette :", error);
+    }
+}
+
+export async function updateRecetteById(id: string, updatedRecette: Recette) {
+    try {
+        const response = await updateRecette(id, updatedRecette);
+        if (response.success) {
+            
+            recettes.update((currentRecettes) => 
+                currentRecettes.map((recette) => 
+                    recette.id === id ? { ...recette, ...updatedRecette } : recette
+                )
+            );
+        } else {
+            console.error("Erreur lors de la mise à jour de la recette");
+        }
+    } catch (error) {
+        console.error("Erreur lors de la mise à jour de la recette :", error);
     }
 }
