@@ -3,8 +3,13 @@
     import { writable } from "svelte/store";
 
     let name = "";
+    let category = "";
     let errorMessage = writable("");
     let successMessage = writable("");
+
+    const categories = [
+        "Légume", "Fruit", "Viande", "Poisson", "Laitier", "Épice", "Céréale", "Condiment", "Herbe aromatique", "Oléagineux", "Boisson", "Produit sucré"
+    ];
 
     async function handleSubmit() {
         errorMessage.set("");
@@ -15,11 +20,17 @@
             return;
         }
 
+        if (!category.trim()) {
+            errorMessage.set("La catégorie de l'ingrédient est requise.");
+            return;
+        }
+
         try {
-            const response = await createIngredient({ name });
+            const response = await createIngredient({ name, category });
             if (response) {
                 successMessage.set("Ingrédient ajouté avec succès !");
                 name = "";
+                category = "";
             } else {
                 errorMessage.set("Une erreur est survenue lors de l'ajout.");
             }
@@ -41,13 +52,26 @@
     {/if}
 
     <form on:submit|preventDefault={handleSubmit}>
-        <label class="block mb-2">Nom de l'ingrédient :</label>
+        <label for="name" class="block mb-2">Nom de l'ingrédient :</label>
         <input 
+            id="name"
             type="text" 
             bind:value={name} 
             class="w-full p-2 border rounded mb-4"
             placeholder="Ex : Tomate"
         />
+
+        <label for="category" class="block mb-2">Catégorie :</label>
+        <select 
+            id="category"
+            bind:value={category} 
+            class="w-full p-2 border rounded mb-4">
+            <option value="" disabled selected>Choisir une catégorie</option>
+            {#each categories as cat}
+                <option value={cat}>{cat}</option>
+            {/each}
+        </select>
+        
         <button 
             type="submit" 
             class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">

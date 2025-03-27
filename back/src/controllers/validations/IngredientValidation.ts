@@ -9,13 +9,18 @@ export const validateIngredientDTO = (body: any): string | null => {
         return "'name' est requis et doit être une chaîne non vide.";
     }
 
+     // Vérifie si 'category' est défini
+     if (!body || typeof body.category !== "string" || body.category.trim().length === 0) {
+        return "'category' est requis et doit être une chaîne non vide.";
+    }
+
     // longueur du nom
     if (body.name.length > MAX_NAME_LENGTH) {
         return `L'attribut 'name' ne peut pas dépasser ${MAX_NAME_LENGTH} caractères.`;
     }
 
     // pas de champs supplémentaires dans le body
-    const allowedFields = ["name"];
+    const allowedFields = ["name", "category"];
     const extraFields = Object.keys(body).filter((key) => !allowedFields.includes(key));
     if (extraFields.length > 0) {
         return `Les champs suivants ne sont pas autorisés : ${extraFields.join(", ")}`;

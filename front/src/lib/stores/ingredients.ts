@@ -4,6 +4,7 @@ import {getIngredientById, getIngredients} from "../services/api.js";
 export interface Ingredient {
     id: string;
     name: string;
+    category: string;
     createdDate: Date;
     updatedDate: Date;
 }
