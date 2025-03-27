@@ -44,10 +44,10 @@ Renseignez le MONGODB_URI en fonction de l'environnement choisi pour la base de 
 ```
 
 2. ### Que faire si on demande la recette du café ?
-[cliquez-ici](https://comfortable-hawk-68-96ska177ssd6.deno.dev/recipes/coffe)
+[cliquez-ici](https://exciting-zebra-22-x3bgj9bzby7q.deno.dev/recipes/coffee)
 
 
 ## 🌍 API Déployée
 
 L'API est accessible à l'URL suivante :  
-🔗 **[https://comfortable-hawk-68-96ska177ssd6.deno.dev/](https://comfortable-hawk-68-96ska177ssd6.deno.dev/)**
+🔗 **[https://exciting-zebra-22-x3bgj9bzby7q.deno.dev/](https://exciting-zebra-22-x3bgj9bzby7q.deno.dev/)**
