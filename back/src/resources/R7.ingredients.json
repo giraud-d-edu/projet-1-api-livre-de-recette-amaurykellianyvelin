@@ -1,189 +1,362 @@
-[{
-  "_id": {
-    "$oid": "67e421b68e127ba33f15e02a"
+[
+  {
+      "name": "Tomate",
+      "category": "Légume",
+      "createdDate": "2025-03-27 09:12:22.871575"
   },
-  "name": "Tomate",
-  "createdDate": {
-    "$date": "2025-03-26T15:48:06.885Z"
-  }
-},
-{
-  "_id": {
-    "$oid": "67e421c38e127ba33f15e02b"
+  {
+      "name": "Carotte",
+      "category": "Légume",
+      "createdDate": "2025-03-27 09:12:22.871592"
   },
-  "name": "Oignon",
-  "createdDate": {
-    "$date": "2025-03-26T15:48:19.769Z"
-  }
-},
-{
-  "_id": {
-    "$oid": "67e421c88e127ba33f15e02c"
+  {
+      "name": "Brocoli",
+      "category": "Légume",
+      "createdDate": "2025-03-27 09:12:22.871594"
   },
-  "name": "Ail",
-  "createdDate": {
-    "$date": "2025-03-26T15:48:24.978Z"
-  }
-},
-{
-  "_id": {
-    "$oid": "67e422048e127ba33f15e02d"
+  {
+      "name": "Courgette",
+      "category": "Légume",
+      "createdDate": "2025-03-27 09:12:22.871597"
   },
-  "name": "Basilic",
-  "createdDate": {
-    "$date": "2025-03-26T15:49:24.579Z"
-  }
-},
-{
-  "_id": {
-    "$oid": "67e422088e127ba33f15e02e"
+  {
+      "name": "Épinard",
+      "category": "Légume",
+      "createdDate": "2025-03-27 09:12:22.871599"
   },
-  "name": "Poivron",
-  "createdDate": {
-    "$date": "2025-03-26T15:49:28.853Z"
-  }
-},
-{
-  "_id": {
-    "$oid": "67e4220d8e127ba33f15e02f"
+  {
+      "name": "Poivron",
+      "category": "Légume",
+      "createdDate": "2025-03-27 09:12:22.871601"
   },
-  "name": "Courgette",
-  "createdDate": {
-    "$date": "2025-03-26T15:49:33.582Z"
-  }
-},
-{
-  "_id": {
-    "$oid": "67e422128e127ba33f15e030"
+  {
+      "name": "Concombre",
+      "category": "Légume",
+      "createdDate": "2025-03-27 09:12:22.871603"
   },
-  "name": "Aubergine",
-  "createdDate": {
-    "$date": "2025-03-26T15:49:38.032Z"
-  }
-},
-{
-  "_id": {
-    "$oid": "67e422168e127ba33f15e031"
+  {
+      "name": "Oignon",
+      "category": "Légume",
+      "createdDate": "2025-03-27 09:12:22.871605"
   },
-  "name": "Carotte",
-  "createdDate": {
-    "$date": "2025-03-26T15:49:42.316Z"
-  }
-},
-{
-  "_id": {
-    "$oid": "67e4221b8e127ba33f15e032"
+  {
+      "name": "Pomme",
+      "category": "Fruit",
+      "createdDate": "2025-03-27 09:12:22.871606"
   },
-  "name": "Pomme de terre",
-  "createdDate": {
-    "$date": "2025-03-26T15:49:47.458Z"
-  }
-},
-{
-  "_id": {
-    "$oid": "67e422208e127ba33f15e033"
+  {
+      "name": "Banane",
+      "category": "Fruit",
+      "createdDate": "2025-03-27 09:12:22.871608"
   },
-  "name": "Lait",
-  "createdDate": {
-    "$date": "2025-03-26T15:49:52.713Z"
-  }
-},
-{
-  "_id": {
-    "$oid": "67e422288e127ba33f15e034"
+  {
+      "name": "Orange",
+      "category": "Fruit",
+      "createdDate": "2025-03-27 09:12:22.871611"
   },
-  "name": "Beurre",
-  "createdDate": {
-    "$date": "2025-03-26T15:50:00.206Z"
-  }
-},
-{
-  "_id": {
-    "$oid": "67e422398e127ba33f15e035"
+  {
+      "name": "Fraise",
+      "category": "Fruit",
+      "createdDate": "2025-03-27 09:12:22.871613"
   },
-  "name": "Crème fraîche",
-  "createdDate": {
-    "$date": "2025-03-26T15:50:17.957Z"
-  }
-},
-{
-  "_id": {
-    "$oid": "67e422408e127ba33f15e036"
+  {
+      "name": "Raisin",
+      "category": "Fruit",
+      "createdDate": "2025-03-27 09:12:22.871614"
   },
-  "name": "Farine",
-  "createdDate": {
-    "$date": "2025-03-26T15:50:24.068Z"
-  }
-},
-{
-  "_id": {
-    "$oid": "67e422468e127ba33f15e037"
+  {
+      "name": "Kiwi",
+      "category": "Fruit",
+      "createdDate": "2025-03-27 09:12:22.871616"
   },
-  "name": "Sucre",
-  "createdDate": {
-    "$date": "2025-03-26T15:50:30.640Z"
-  }
-},
-{
-  "_id": {
-    "$oid": "67e4224d8e127ba33f15e038"
+  {
+      "name": "Mangue",
+      "category": "Fruit",
+      "createdDate": "2025-03-27 09:12:22.871618"
   },
-  "name": "Riz",
-  "createdDate": {
-    "$date": "2025-03-26T15:50:37.634Z"
-  }
-},
-{
-  "_id": {
-    "$oid": "67e422528e127ba33f15e039"
+  {
+      "name": "Pêche",
+      "category": "Fruit",
+      "createdDate": "2025-03-27 09:12:22.871621"
   },
-  "name": "Poulet",
-  "createdDate": {
-    "$date": "2025-03-26T15:50:42.927Z"
-  }
-},
-{
-  "_id": {
-    "$oid": "67e422578e127ba33f15e03a"
+  {
+      "name": "Poulet",
+      "category": "Viande",
+      "createdDate": "2025-03-27 09:12:22.871622"
   },
-  "name": "Boeuf",
-  "createdDate": {
-    "$date": "2025-03-26T15:50:47.297Z"
-  }
-},
-{
-  "_id": {
-    "$oid": "67e4225c8e127ba33f15e03b"
+  {
+      "name": "Boeuf",
+      "category": "Viande",
+      "createdDate": "2025-03-27 09:12:22.871624"
   },
-  "name": "Saumon",
-  "createdDate": {
-    "$date": "2025-03-26T15:50:52.187Z"
-  }
-},
-{
-  "_id": {
-    "$oid": "67e422618e127ba33f15e03c"
+  {
+      "name": "Agneau",
+      "category": "Viande",
+      "createdDate": "2025-03-27 09:12:22.871626"
   },
-  "name": "Fromage râpé",
-  "createdDate": {
-    "$date": "2025-03-26T15:50:57.678Z"
-  }
-},
-{
-  "_id": {
-    "$oid": "67e422678e127ba33f15e03d"
+  {
+      "name": "Porc",
+      "category": "Viande",
+      "createdDate": "2025-03-27 09:12:22.871628"
   },
-  "name": "Épinard",
-  "createdDate": {
-    "$date": "2025-03-26T15:51:03.033Z"
-  }
-},
-{
-  "_id": {
-    "$oid": "67e422c58e127ba33f15e03e"
+  {
+      "name": "Dinde",
+      "category": "Viande",
+      "createdDate": "2025-03-27 09:12:22.871630"
   },
-  "name": "Œuf",
-  "createdDate": {
-    "$date": "2025-03-26T15:52:37.801Z"
+  {
+      "name": "Saumon",
+      "category": "Poisson",
+      "createdDate": "2025-03-27 09:12:22.871632"
+  },
+  {
+      "name": "Thon",
+      "category": "Poisson",
+      "createdDate": "2025-03-27 09:12:22.871634"
+  },
+  {
+      "name": "Cabillaud",
+      "category": "Poisson",
+      "createdDate": "2025-03-27 09:12:22.871636"
+  },
+  {
+      "name": "Maquereau",
+      "category": "Poisson",
+      "createdDate": "2025-03-27 09:12:22.871638"
+  },
+  {
+      "name": "Sardine",
+      "category": "Poisson",
+      "createdDate": "2025-03-27 09:12:22.871640"
+  },
+  {
+      "name": "Lait",
+      "category": "Laitier",
+      "createdDate": "2025-03-27 09:12:22.871642"
+  },
+  {
+      "name": "Fromage",
+      "category": "Laitier",
+      "createdDate": "2025-03-27 09:12:22.871644"
+  },
+  {
+      "name": "Yaourt",
+      "category": "Laitier",
+      "createdDate": "2025-03-27 09:12:22.871646"
+  },
+  {
+      "name": "Beurre",
+      "category": "Laitier",
+      "createdDate": "2025-03-27 09:12:22.871648"
+  },
+  {
+      "name": "Crème fraîche",
+      "category": "Laitier",
+      "createdDate": "2025-03-27 09:12:22.871650"
+  },
+  {
+      "name": "Riz",
+      "category": "Féculent",
+      "createdDate": "2025-03-27 09:12:22.871652"
+  },
+  {
+      "name": "Pâtes",
+      "category": "Féculent",
+      "createdDate": "2025-03-27 09:12:22.871653"
+  },
+  {
+      "name": "Pommes de terre",
+      "category": "Féculent",
+      "createdDate": "2025-03-27 09:12:22.871655"
+  },
+  {
+      "name": "Quinoa",
+      "category": "Féculent",
+      "createdDate": "2025-03-27 09:12:22.871657"
+  },
+  {
+      "name": "Couscous",
+      "category": "Féculent",
+      "createdDate": "2025-03-27 09:12:22.871659"
+  },
+  {
+      "name": "Patate douce",
+      "category": "Féculent",
+      "createdDate": "2025-03-27 09:12:22.871661"
+  },
+  {
+      "name": "Blé",
+      "category": "Féculent",
+      "createdDate": "2025-03-27 09:12:22.871663"
+  },
+  {
+      "name": "Sel",
+      "category": "Épice",
+      "createdDate": "2025-03-27 09:12:22.871665"
+  },
+  {
+      "name": "Poivre",
+      "category": "Épice",
+      "createdDate": "2025-03-27 09:12:22.871667"
+  },
+  {
+      "name": "Basilic",
+      "category": "Herbe aromatique",
+      "createdDate": "2025-03-27 09:12:22.871670"
+  },
+  {
+      "name": "Thym",
+      "category": "Herbe aromatique",
+      "createdDate": "2025-03-27 09:12:22.871673"
+  },
+  {
+      "name": "Cumin",
+      "category": "Épice",
+      "createdDate": "2025-03-27 09:12:22.871677"
+  },
+  {
+      "name": "Paprika",
+      "category": "Épice",
+      "createdDate": "2025-03-27 09:12:22.871680"
+  },
+  {
+      "name": "Coriandre",
+      "category": "Herbe aromatique",
+      "createdDate": "2025-03-27 09:12:22.871683"
+  },
+  {
+      "name": "Menthe",
+      "category": "Herbe aromatique",
+      "createdDate": "2025-03-27 09:12:22.871686"
+  },
+  {
+      "name": "Flocons d'avoine",
+      "category": "Céréale",
+      "createdDate": "2025-03-27 09:12:22.871689"
+  },
+  {
+      "name": "Muesli",
+      "category": "Céréale",
+      "createdDate": "2025-03-27 09:12:22.871708"
+  },
+  {
+      "name": "Riz brun",
+      "category": "Céréale",
+      "createdDate": "2025-03-27 09:12:22.871711"
+  },
+  {
+      "name": "Millet",
+      "category": "Céréale",
+      "createdDate": "2025-03-27 09:12:22.871713"
+  },
+  {
+      "name": "Orge",
+      "category": "Céréale",
+      "createdDate": "2025-03-27 09:12:22.871715"
+  },
+  {
+      "name": "Ketchup",
+      "category": "Condiment",
+      "createdDate": "2025-03-27 09:12:22.871717"
+  },
+  {
+      "name": "Mayonnaise",
+      "category": "Condiment",
+      "createdDate": "2025-03-27 09:12:22.871719"
+  },
+  {
+      "name": "Moutarde",
+      "category": "Condiment",
+      "createdDate": "2025-03-27 09:12:22.871722"
+  },
+  {
+      "name": "Sauce soja",
+      "category": "Condiment",
+      "createdDate": "2025-03-27 09:12:22.871723"
+  },
+  {
+      "name": "Vinaigre balsamique",
+      "category": "Condiment",
+      "createdDate": "2025-03-27 09:12:22.871725"
+  },
+  {
+      "name": "Sauce barbecue",
+      "category": "Condiment",
+      "createdDate": "2025-03-27 09:12:22.871727"
+  },
+  {
+      "name": "Amandes",
+      "category": "Oléagineux",
+      "createdDate": "2025-03-27 09:12:22.871730"
+  },
+  {
+      "name": "Noix de cajou",
+      "category": "Oléagineux",
+      "createdDate": "2025-03-27 09:12:22.871732"
+  },
+  {
+      "name": "Noisettes",
+      "category": "Oléagineux",
+      "createdDate": "2025-03-27 09:12:22.871734"
+  },
+  {
+      "name": "Pistaches",
+      "category": "Oléagineux",
+      "createdDate": "2025-03-27 09:12:22.871736"
+  },
+  {
+      "name": "Pécans",
+      "category": "Oléagineux",
+      "createdDate": "2025-03-27 09:12:22.871738"
+  },
+  {
+      "name": "Eau",
+      "category": "Boisson",
+      "createdDate": "2025-03-27 09:12:22.871739"
+  },
+  {
+      "name": "Jus d'orange",
+      "category": "Boisson",
+      "createdDate": "2025-03-27 09:12:22.871742"
+  },
+  {
+      "name": "Café",
+      "category": "Boisson",
+      "createdDate": "2025-03-27 09:12:22.871743"
+  },
+  {
+      "name": "Thé",
+      "category": "Boisson",
+      "createdDate": "2025-03-27 09:12:22.871746"
+  },
+  {
+      "name": "Limonade",
+      "category": "Boisson",
+      "createdDate": "2025-03-27 09:12:22.871747"
+  },
+  {
+      "name": "Sucre",
+      "category": "Produit sucré",
+      "createdDate": "2025-03-27 09:12:22.871749"
+  },
+  {
+      "name": "Miel",
+      "category": "Produit sucré",
+      "createdDate": "2025-03-27 09:12:22.871751"
+  },
+  {
+      "name": "Chocolat",
+      "category": "Produit sucré",
+      "createdDate": "2025-03-27 09:12:22.871753"
+  },
+  {
+      "name": "Bonbons",
+      "category": "Produit sucré",
+      "createdDate": "2025-03-27 09:12:22.871755"
+  },
+  {
+      "name": "Confiture",
+      "category": "Produit sucré",
+      "createdDate": "2025-03-27 09:12:22.871757"
   }
-}]
+]
