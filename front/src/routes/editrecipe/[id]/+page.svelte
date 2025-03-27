@@ -1,23 +1,36 @@
 <script>
-    import { writable } from "svelte/store";
-    import { createRecette, getIngredients } from "../../lib/services/api.js";
+    import { recette, updateRecetteById } from '$lib/stores/recipe';
+    import { writable } from 'svelte/store';
+    import { onMount } from 'svelte';
+    import { getIngredients } from '$lib/services/api';
     import { goto } from '$app/navigation';
 
     let name = "";
     let preparation_time = "";
     let cooking_time = "";
     let instructions = "";
-    let successMessage = "";
     const availableIngredients = writable([])
+    const ingredients = writable([]);
     const isSubmitting = writable(false);
-    const ingredients = writable([{ ingredient_id: "", quantity: "" }]);
-
     const errors = writable({
         name: "",
         preparation_time: "",
         cooking_time: "",
         ingredients: "",
         instructions: ""
+    });
+    onMount(() => {
+        const currentRecette = $recette;
+        if (currentRecette) {
+            name = currentRecette.name;
+            preparation_time = currentRecette.preparation_time;
+            cooking_time = currentRecette.cooking_time;
+            instructions = currentRecette.instructions;
+            ingredients.set(currentRecette.ingredients.map(ingredient => ({
+                ingredient_id: ingredient.id,
+                quantity: ingredient.quantity,
+            })));
+        }
     });
 
     async function loadIngredients() {
@@ -85,54 +98,29 @@
         if (!validateForm()) return;
 
         isSubmitting.set(true);
-        successMessage = "";
+        const updatedRecipeData = {
+            name,
+            preparation_time: Number(preparation_time),
+            cooking_time: Number(cooking_time),
+            ingredients: $ingredients,
+            instructions
+        };
 
         try {
-            const recipeData = {
-                name,
-                preparation_time: Number(preparation_time),
-                cooking_time: Number(cooking_time),
-                ingredients: $ingredients,
-                instructions
-            };
-
-            console.log("🔹 Données envoyées :", recipeData);
-
-            const response = await createRecette(recipeData);
-            console.log(response);
-
-            if (response.recette) {
-                successMessage = "Recette ajoutée avec succès !";
-
-                name = "";
-                preparation_time = "";
-                cooking_time = "";
-                ingredients.set([{ ingredient_id: "", quantity: "" }]);
-                instructions = "";
-                errors.set({
-                    name: "",
-                    preparation_time: "",
-                    cooking_time: "",
-                    ingredients: "",
-                    instructions: ""
-                });
-                goto('/');
-            } else {
-                successMessage = `Erreur : ${response.message}`;
-            }
+            await updateRecetteById($recette.id, updatedRecipeData);
+            goto(`/recipe/${$recette.id}`);
         } catch (error) {
-            successMessage = "Une erreur est survenue.";
+            console.error("Erreur lors de la mise à jour de la recette", error);
         } finally {
             isSubmitting.set(false);
         }
     }
-
 </script>
 
-<h1>Ajouter une recette</h1>
+<h1>Modifier la recette</h1>
 
-{#if successMessage}
-    <p class="success">{successMessage}</p>
+{#if $errors.name || $errors.preparation_time || $errors.cooking_time || $errors.ingredients || $errors.instructions}
+    <p class="error">Veuillez corriger les erreurs ci-dessus.</p>
 {/if}
 
 <form on:submit|preventDefault={submitForm}>
@@ -154,8 +142,10 @@
             <select bind:value={$ingredients[index].ingredient_id}>
                 <option value="">Sélectionner un ingrédient</option>
                 {#each $availableIngredients as ingredient}
-                    <option value={ingredient.id}>{ingredient.name}</option>
-                {/each}
+                <option value={ingredient.id} selected={ingredient.id === ing.ingredient_id}>
+                    {ingredient.name}
+                </option>
+            {/each}
             </select>
             <input 
                 type="text" 
@@ -177,7 +167,7 @@
     <p class="error">{$errors.instructions}</p>
 
     <button type="submit" disabled={$isSubmitting}>
-        {$isSubmitting ? "Envoi en cours..." : "Ajouter la recette"}
+        {$isSubmitting ? "Envoi en cours..." : "Mettre à jour la recette"}
     </button>
 </form>
 
@@ -207,23 +197,6 @@
         margin: 5px 0;
     }
 
-    .success {
-        color: green;
-        font-size: 1em;
-        text-align: center;
-        margin-bottom: 10px;
-    }
-
-    .ingredient-row {
-        display: flex;
-        gap: 10px;
-        margin-bottom: 10px;
-    }
-
-    .ingredient-row input {
-        flex: 1;
-    }
-
     button {
         margin-top: 15px;
         padding: 10px;
@@ -237,6 +210,16 @@
 
     button:disabled {
         background-color: #ccc;
+    }
+
+    .ingredient-row {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+
+    .ingredient-row input {
+        flex: 1;
     }
 
     .ingredient-row button {
